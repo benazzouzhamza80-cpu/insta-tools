@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Insta Tools</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.container {
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  margin: auto;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  width: 95%;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  color: black;
+  font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Instagram Tools</h2>
+
+  <!-- Password Checker -->
+  <input type="password" id="pass" placeholder="Enter password">
+  <button onclick="checkPass()">Check Password</button>
+  <p id="result1"></p>
+
+  <!-- Username Checker -->
+  <input type="text" id="user" placeholder="Enter username">
+  <button onclick="checkUser()">Check Username</button>
+  <p id="result2"></p>
+
+</div>
+
+<script>
+function checkPass() {
+  let p = document.getElementById("pass").value;
+  let result = "";
+
+  if (p.length < 6) result = "Weak ❌";
+  else if (p.match(/[A-Z]/) && p.match(/[0-9]/)) result = "Strong ✅";
+  else result = "Medium ⚠️";
+
+  document.getElementById("result1").innerText = result;
+}
+
+function checkUser() {
+  let u = document.getElementById("user").value;
+
+  if (u.length < 4) {
+    document.getElementById("result2").innerText = "Invalid username ❌";
+  } else {
+    document.getElementById("result2").innerText = "Username looks good ✅";
+  }
+}
+</script>
+
+</body>
+</html>
